@@ -1,0 +1,26 @@
+.header{
+  background-color: #fff;
+  height: 70px;
+  line-height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.header > div{
+  display: flex;
+  align-items: center;
+}
+.header > div:first-child, .header > div:last-child{
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+.logo{
+  height: 40px;
+  display: inline-block;
+}
+.thumb{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
