@@ -80,7 +80,9 @@ const styles = {
       color: #ccc;
       font-size: 18px;
       margin-right: 6px;
-      transform: translateY(3px)
+      transform: translateY(3px);
+      position: relative;
+      top: 2px;
     }
   `,
 };
@@ -116,6 +118,9 @@ export default function Agent(props: AgentProps) {
 
         <div className="btns">
           <div>
+            <Button>
+              <i className="icon-plus" style={{ fontSize: '18px' }} />
+            </Button>
             {
               data.resources.map((resource) => <Tag>{resource}</Tag>)
             }

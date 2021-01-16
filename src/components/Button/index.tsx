@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { cx, css } from '@emotion/css';
 
 interface ButtonProps {
-  children: string,
+  children: ReactNode,
   icon?: string,
   type?: string,
 }
@@ -23,10 +23,10 @@ export default function Button(props: ButtonProps) {
         outline: none;
         padding: 5px 10px;
         cursor: pointer;
-        i {
-          margin-right: 6px;
+        .icon {
           position: relative;
           top: 1px;
+          margin-right: ${children ? '6px' : 0}
         }
         &.default{
           background: #00b4cf;
@@ -44,7 +44,7 @@ export default function Button(props: ButtonProps) {
       type="button"
     >
       {
-        icon && <i className={`icon-${icon}`} />
+        icon && <i className={`icon icon-${icon}`} />
       }
       {children}
     </button>

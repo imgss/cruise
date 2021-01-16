@@ -16,7 +16,7 @@ const menus: Menu[] = [{
   text: 'MY CRUISE',
   selected: false,
 }, {
-  icon: 'dashboard',
+  icon: 'life-bouy',
   text: 'HELP',
   selected: false,
 }];
