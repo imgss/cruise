@@ -19,7 +19,8 @@ export default function Tag(props: TagProps) {
       className={css`
         background: #efefef;
         margin: 0 6px;
-        padding: 2px 6px;
+        padding: 0px 6px;
+        line-height: 30px;
         vertical-align: middle;
         i{
           margin-left: 4px;

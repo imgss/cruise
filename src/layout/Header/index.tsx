@@ -17,7 +17,6 @@ export default function Header() {
           className={styles.thumb}
         />
       </div>
-
     </header>
   );
 }

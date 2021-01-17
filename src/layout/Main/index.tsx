@@ -27,8 +27,13 @@ export default function Main() {
       background-color: rgb(243,243,243);
       flex: 1;
       overflow-y: scroll;
-      max-width: 1280px;
-      width: 1200px;
+      @media screen and (max-width: 1200px) {
+        width: 100%;
+      }
+      @media screen and (min-width: 1200px) {
+        max-width: 1280px;
+        width: 1200px;
+      }
       display: flex;
       margin: 0 auto;
     `}

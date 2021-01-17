@@ -70,6 +70,8 @@ const styles = {
       display: flex;
       div:first-child{
         flex: 1 1 auto;
+        display: flex;
+        align-items: center;
       }
     }
   `,

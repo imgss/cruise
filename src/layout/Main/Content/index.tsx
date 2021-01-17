@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/css';
+import TabBar from './components/TabBar';
+import Cards from './components/Cards';
 import Agent, { AgentData } from './components/Agent';
 
 export default function Content() {
@@ -23,6 +25,8 @@ export default function Content() {
         height: 100%;
       `}
     >
+      <Cards />
+      <TabBar />
       {
         agents.map((agent: AgentData) => (
           <Agent
