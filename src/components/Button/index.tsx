@@ -1,17 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { ReactEventHandler, ReactNode } from 'react';
 import { cx, css } from '@emotion/css';
 
 interface ButtonProps {
   children: ReactNode,
   icon?: string,
   type?: string,
+  style?: React.CSSProperties,
+  onClick?: ReactEventHandler
 }
 
 export default function Button(props: ButtonProps) {
   const {
     children,
     icon,
+    style,
     type = 'default',
+    onClick,
   } = props;
 
   return (
@@ -42,6 +46,8 @@ export default function Button(props: ButtonProps) {
         }
       `)}
       type="button"
+      style={style}
+      onClick={onClick}
     >
       {
         icon && <i className={`icon icon-${icon}`} />

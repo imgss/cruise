@@ -2,7 +2,7 @@ import React from 'react';
 import { css, cx } from '@emotion/css';
 import Tag from 'components/Tag';
 import Button from 'components/Button';
-
+import Popover from 'components/Popover';
 import centosImg from 'assets/os icons/cent_os.png';
 import debinImg from 'assets/os icons/debin.png';
 import suseImg from 'assets/os icons/suse.png';
@@ -68,7 +68,7 @@ const styles = {
     justify-content: space-between;
     .btns{
       display: flex;
-      div:first-child{
+      >div:first-child{
         flex: 1 1 auto;
         display: flex;
         align-items: center;
@@ -85,6 +85,17 @@ const styles = {
       transform: translateY(3px);
       position: relative;
       top: 2px;
+    }
+  `,
+  popover: css`
+    width: 540px;
+    color: #aaa;
+    input{
+      margin-bottom: 20px;
+      margin-top: 10px;
+      width: 500px;
+      padding: 8px 16px;
+      border: 1px solid #ccc;
     }
   `,
 };
@@ -120,9 +131,22 @@ export default function Agent(props: AgentProps) {
 
         <div className="btns">
           <div>
-            <Button>
-              <i className="icon-plus" style={{ fontSize: '18px' }} />
-            </Button>
+            <Popover
+              content={(setVisible) => (
+                <div className={styles.popover}>
+                  <div>Separate multiple resource name with commas</div>
+                  <div>
+                    <input type="text" />
+                  </div>
+                  <Button style={{ marginRight: '10px' }}>Add Resources</Button>
+                  <Button type="dark" onClick={() => setVisible(false)}>Cancel</Button>
+                </div>
+              )}
+            >
+              <Button>
+                <i className="icon-plus" style={{ fontSize: '18px' }} />
+              </Button>
+            </Popover>
             {
               data.resources.map((resource) => <Tag>{resource}</Tag>)
             }

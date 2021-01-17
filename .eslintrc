@@ -1,5 +1,7 @@
 {
   "extends": "airbnb",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -10,10 +12,14 @@
   },
   "rules": {
       "react/jsx-filename-extension": "off",
+      "react/require-default-props": "off",
       "import/extensions": "off",
       "react/jsx-props-no-spreading": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-static-element-interactions": "off",
-      "no-console": "off"
+      "no-console": "off",
+      "no-unused-vars": "off",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"]
   }
 }
