@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { css, cx } from '@emotion/css';
 import Tag from 'components/Tag';
 import Button from 'components/Button';
@@ -32,7 +32,8 @@ export interface AgentData {
 }
 
 interface AgentProps {
-  data: AgentData
+  data: AgentData,
+  onChange(data: AgentData): Promise<AgentData>
 }
 
 const styles = {
@@ -103,8 +104,20 @@ const styles = {
 export default function Agent(props: AgentProps) {
   const {
     data,
+    onChange,
   } = props;
+  const [input, setInput] = useState('');
 
+  const deleteResource = (v: string) => {
+    const idx = data.resources.findIndex((resource) => resource === v);
+    if (idx !== -1) {
+      const newResource = [...data.resources.slice(0, idx), ...data.resources.slice(idx + 1)];
+      onChange({
+        ...data,
+        resources: newResource,
+      });
+    }
+  };
   return (
     <div
       className={styles.content}
@@ -132,24 +145,45 @@ export default function Agent(props: AgentProps) {
         <div className="btns">
           <div>
             <Popover
-              content={(setVisible) => (
-                <div className={styles.popover}>
-                  <div>Separate multiple resource name with commas</div>
-                  <div>
-                    <input type="text" />
+              content={(setVisible) => {
+                const addResource = () => {
+                  const resources = input.trim().split(',');
+                  if (resources.length) {
+                    const newResource = [...data.resources, ...resources];
+                    onChange({
+                      ...data,
+                      resources: newResource,
+                    }).then(() => setVisible(false));
+                  }
+                };
+                return (
+                  <div className={styles.popover}>
+                    <div>Separate multiple resource name with commas</div>
+                    <div>
+                      <input type="text" value={input} onInput={(e) => setInput((e.target as HTMLInputElement).value)} />
+                    </div>
+                    <Button style={{ marginRight: '10px' }} onClick={addResource}>Add Resources</Button>
+                    <Button type="dark" onClick={() => setVisible(false)}>Cancel</Button>
                   </div>
-                  <Button style={{ marginRight: '10px' }}>Add Resources</Button>
-                  <Button type="dark" onClick={() => setVisible(false)}>Cancel</Button>
-                </div>
-              )}
+                );
+              }}
             >
               <Button>
                 <i className="icon-plus" style={{ fontSize: '18px' }} />
               </Button>
             </Popover>
-            {
-              data.resources.map((resource) => <Tag>{resource}</Tag>)
-            }
+            <div style={{ display: 'flex', overflowX: 'scroll', maxWidth: '600px' }}>
+              {
+                data.resources && data.resources.map((resource) => (
+                  <Tag
+                    key={resource}
+                    onDelete={() => deleteResource(resource)}
+                  >
+                    {resource}
+                  </Tag>
+                ))
+              }
+            </div>
           </div>
           <Button icon="deny">Deny</Button>
         </div>

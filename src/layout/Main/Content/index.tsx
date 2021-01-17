@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { css } from '@emotion/css';
 import TabBar from './components/TabBar';
 import Cards from './components/Cards';
@@ -18,6 +18,25 @@ export default function Content() {
       });
   }, []);
 
+  const handleChange = useCallback((data: AgentData) => {
+    const idx = agents.findIndex((agent) => agent.id === data.id);
+    console.log(data.id, agents, idx);
+    return fetch(`http://localhost:3001/agents/${data.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(() => {
+      setAgents([
+        ...agents.slice(0, idx),
+        data,
+        ...agents.slice(idx + 1),
+      ]);
+      return data;
+    });
+  }, [setAgents, agents]);
+
   return (
     <div
       className={css`
@@ -35,6 +54,7 @@ export default function Content() {
           <Agent
             key={agent.id}
             data={agent}
+            onChange={handleChange}
           />
         ))
       }
