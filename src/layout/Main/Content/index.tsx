@@ -5,13 +5,16 @@ import Cards from './components/Cards';
 import Agent, { AgentData } from './components/Agent';
 
 export default function Content() {
-  const [agents, setAgents] = useState([]);
+  const [agents, setAgents] = useState<AgentData[]>([]);
   useEffect(() => {
     fetch('http://localhost:3001/agents')
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setAgents(data);
+      })
+      .catch(() => {
+        console.log('err');
       });
   }, []);
 
