@@ -1,5 +1,14 @@
 import React from 'react';
-import { css } from '@emotion/css';
+import { css, keyframes } from '@emotion/css';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export default function Cards() {
   return (
@@ -15,6 +24,11 @@ export default function Cards() {
         position: relative;
         &.yellow{
           background: #ff9a2a;
+        }
+        .rotate{
+          display: inline-block;
+          animation: ${rotate} 20s infinite linear;
+          animation-fill-mode: forwards;
         }
         &.green{
           background: #7fbc39;
@@ -64,7 +78,7 @@ export default function Cards() {
     >
       <div className="card yellow status">
         <span>Building</span>
-        <i className="icon-cog" />
+        <i className="icon-cog rotate" />
         <span>3</span>
       </div>
       <div className="card green status">
