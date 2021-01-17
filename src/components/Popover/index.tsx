@@ -57,6 +57,7 @@ export default function Popover(props: PopoverProps) {
           padding: 16px;
           border: 1px solid #00b4cf;
           z-index: 10;
+          box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
           .icon-close{
             color:  #00b4cf;
             font-weight: bold;

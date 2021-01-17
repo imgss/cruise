@@ -8,6 +8,7 @@
 .header > div{
   display: flex;
   align-items: center;
+  position: relative;
 }
 .header > div:first-child, .header > div:last-child{
   width: 10%;

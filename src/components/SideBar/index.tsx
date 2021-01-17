@@ -78,6 +78,7 @@ export default function SideBar(props: SideBarProps) {
             text-overflow: ellipsis;
             line-height: 1.8em;
             white-space: nowrap;
+            font-size: 12px;
             oveflow: hidden;
           }
           .title{
