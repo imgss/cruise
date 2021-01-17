@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1543df25.chunk.css",
+    "main.js": "/static/js/main.d643a728.chunk.js",
+    "main.js.map": "/static/js/main.d643a728.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.29ce062a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.29ce062a.js.map",
+    "static/js/2.7b6c4596.chunk.js": "/static/js/2.7b6c4596.chunk.js",
+    "static/js/2.7b6c4596.chunk.js.map": "/static/js/2.7b6c4596.chunk.js.map",
+    "static/js/3.91ae8a4a.chunk.js": "/static/js/3.91ae8a4a.chunk.js",
+    "static/js/3.91ae8a4a.chunk.js.map": "/static/js/3.91ae8a4a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1543df25.chunk.css.map": "/static/css/main.1543df25.chunk.css.map",
+    "static/js/2.7b6c4596.chunk.js.LICENSE.txt": "/static/js/2.7b6c4596.chunk.js.LICENSE.txt",
+    "static/media/cent_os.a2f5c25d.png": "/static/media/cent_os.a2f5c25d.png",
+    "static/media/fonts.css": "/static/media/cruise.c3ba412d.woff",
+    "static/media/debin.5008612d.png": "/static/media/debin.5008612d.png",
+    "static/media/logo.a6a45554.svg": "/static/media/logo.a6a45554.svg",
+    "static/media/suse.304fe3a5.png": "/static/media/suse.304fe3a5.png",
+    "static/media/thumb.343189c5.jpg": "/static/media/thumb.343189c5.jpg",
+    "static/media/ubuntu.1c948ee9.png": "/static/media/ubuntu.1c948ee9.png",
+    "static/media/windows.b58e3c91.png": "/static/media/windows.b58e3c91.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29ce062a.js",
+    "static/js/2.7b6c4596.chunk.js",
+    "static/css/main.1543df25.chunk.css",
+    "static/js/main.d643a728.chunk.js"
+  ]
+}
