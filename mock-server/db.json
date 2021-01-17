@@ -1,5 +1,6 @@
 {
-  "agents": [{
+  "agents": [
+    {
       "name": "bjstdmngbdr01.thoughtworks.com",
       "os": "windows",
       "status": "idle",
@@ -10,7 +11,9 @@
         "Firefox",
         "Safari",
         "Ubuntu",
-        "Chrome"
+        "71771",
+        "111",
+        "22"
       ],
       "id": 1
     },
@@ -38,7 +41,8 @@
       "location": "/var/lib/cruise-agent",
       "resources": [
         "Firefox",
-        "Safari"
+        "Safari",
+        "999"
       ],
       "id": 3
     },
@@ -53,7 +57,8 @@
         "Firefox",
         "Safari",
         "Ubuntu",
-        "Chrome"
+        "Chrome",
+        "888"
       ],
       "id": 4
     },
@@ -64,7 +69,10 @@
       "type": "physical",
       "ip": "192.168.1.110",
       "location": "/var/lib/cruise-agent",
-      "resources": [],
+      "resources": [
+        "88",
+        "99"
+      ],
       "id": 5
     },
     {

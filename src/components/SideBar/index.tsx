@@ -52,6 +52,7 @@ export default function SideBar(props: SideBarProps) {
     <aside
       className={css`
         background-color: #2d4054;
+        position: relative;
         padding-top: 20px;
         box-sizing: border-box;
         width: 280px;
@@ -60,8 +61,37 @@ export default function SideBar(props: SideBarProps) {
       `}
     >
       {
-        menus.map((menu) => <MenuItem {...menu} />)
+        menus.map((menu) => <MenuItem key={menu.text} {...menu} />)
       }
+      <section
+        className={css`
+          color: #ccc;
+          padding-left: 16px;
+          width: 280px;
+          box-sizing: border-box;
+          position: absolute;
+          bottom: 0;
+          ul{
+            padding-inline-start: 16px;
+          }
+          li{
+            text-overflow: ellipsis;
+            line-height: 1.8em;
+            white-space: nowrap;
+            oveflow: hidden;
+          }
+          .title{
+            font-size: 20px;
+          }
+        `}
+      >
+        <div className="title">History</div>
+        <ul>
+          {
+            Array.from({ length: 10 }).map((i) => <li>bjstdmngbdr10/Acceptance_test</li>)
+          }
+        </ul>
+      </section>
     </aside>
   );
 }

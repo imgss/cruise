@@ -153,7 +153,10 @@ export default function Agent(props: AgentProps) {
                     onChange({
                       ...data,
                       resources: newResource,
-                    }).then(() => setVisible(false));
+                    }).then(() => {
+                      setVisible(false);
+                      setInput('');
+                    });
                   }
                 };
                 return (
