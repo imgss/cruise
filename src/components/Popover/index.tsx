@@ -1,5 +1,13 @@
 import React, {
-  useState, useRef, useEffect, ReactElement, ReactNode, RefObject, ReactEventHandler,
+  useState,
+  useRef,
+  useEffect,
+  ReactElement,
+  ReactNode,
+  RefObject,
+  ReactEventHandler,
+  useLayoutEffect,
+  useCallback,
 } from 'react';
 import { css } from '@emotion/css';
 
@@ -41,6 +49,14 @@ export default function Popover(props: PopoverProps) {
     content,
   } = props;
   const [visible, setVisible] = useState(false);
+  const contentRef = useCallback((node: HTMLDivElement) => {
+    if (node) {
+      // eslint-disable-next-line no-unused-expressions
+      node.offsetHeight;
+      // eslint-disable-next-line no-param-reassign
+      node.style.opacity = '1';
+    }
+  }, []);
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setVisible(false));
   return (
@@ -56,6 +72,8 @@ export default function Popover(props: PopoverProps) {
           background: #fff;
           padding: 16px;
           border: 1px solid #00b4cf;
+          transition: opacity .6s ease;
+          opacity: 0;
           z-index: 10;
           box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
           .icon-close{
@@ -86,7 +104,7 @@ export default function Popover(props: PopoverProps) {
       </div>
       {
         visible && (
-          <div className="content">
+          <div className="content" ref={contentRef}>
             <i className="icon-close" onClick={() => setVisible(false)} />
             {typeof content === 'function' ? content(setVisible) : content}
           </div>

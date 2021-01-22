@@ -147,9 +147,9 @@ export default function Agent(props: AgentProps) {
             <Popover
               content={(setVisible) => {
                 const addResource = () => {
-                  const resources = input.trim().split(',');
+                  const resources = input.trim().split(',').filter((resource) => !/^\s*$/.test(resource));
                   if (resources.length) {
-                    const newResource = [...data.resources, ...resources];
+                    const newResource = [...new Set([...data.resources, ...resources])];
                     onChange({
                       ...data,
                       resources: newResource,
